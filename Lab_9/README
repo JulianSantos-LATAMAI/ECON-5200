@@ -1,0 +1,20 @@
+Recovering Experimental Truths via Propensity Score Matching
+Objective
+Demonstrate that rigorous propensity score methods can rehabilitate observational data corrupted by selection bias, recovering causal treatment effect estimates consistent with those obtained from randomized experimental benchmarks.
+
+Methodology
+Selection Bias Modeling: Characterized the systematic differences between treated and control units in the Lalonde observational dataset, diagnosing the degree to which self-selection into treatment confounded naive comparisons.
+Propensity Score Estimation: Fit a logistic regression model to estimate each unit's conditional probability of receiving treatment given observed pre-treatment covariates, collapsing the covariate space into a single balancing score.
+Nearest-Neighbor Matching: Matched each treated unit to its closest untreated counterpart in propensity score space, constructing a pseudo-experimental sample with substantially improved covariate balance.
+Treatment Effect Recovery: Computed the Average Treatment Effect on the Treated (ATT) on the matched sample and benchmarked it against both the naive observational estimate and the known experimental ground truth.
+Tools & Libraries: Python, Pandas, Scikit-Learn
+
+Key Findings
+The results illustrate the severity of selection bias in raw observational data — and the power of matching to correct it.
+
+Estimate	Value
+Naïve Observational ATT (unmatched)	−$15,204
+PSM-Recovered ATT (matched)	+$1,800 (approx.)
+Experimental Benchmark (ground truth)	~+$1,800
+The unmatched sample produced a treatment effect estimate off by over $17,000 — a sign reversal driven entirely by selection into treatment. After propensity score matching restored covariate balance, the recovered estimate converged tightly on the experimental truth, validating the core promise of the PSM framework: that under the conditional independence assumption, observational data can approximate the counterfactual logic of a randomized controlled trial.
+
