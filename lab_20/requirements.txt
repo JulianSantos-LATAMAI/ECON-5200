@@ -1,0 +1,9 @@
+fredapi
+statsmodels
+ruptures
+streamlit
+plotly
+numpy
+pandas
+matplotlib
+scikit-learn
